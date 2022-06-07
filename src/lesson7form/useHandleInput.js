@@ -3,6 +3,9 @@ export default function useHandleInput(initialValue) {
     const [val, setVal] = useState(
         initialValue
     );
+    {
+        console.log(initialValue)
+    }
     const handleInputChange = (e) => {
         setVal({
             ...val,

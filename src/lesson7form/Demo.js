@@ -8,6 +8,11 @@ function Demo(props) {
             , save: false
         }
     );
+    const [submit, setSubmit] = useState({
+        userName: false ,
+        password: false
+        
+    });
     let a = { data: "213", password: "213" }
     console.log(a["data"]);
     const handleInputChange = (e) => {
@@ -42,6 +47,12 @@ function Demo(props) {
             password: e.target.value
         });
     }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setSubmit(true);
+
+
+    }
     return (
 
         <div className="container">
@@ -64,7 +75,7 @@ function Demo(props) {
                             <input id="save" type="checkbox" onInput={(e) => handleInputChange(e)} className='form-control'
                                 placeholder='nhap password' />
                             <small class form-text text-muted></small>
-
+                            <button type="button" class="btn btn-primary" id='submit'>Log in</button>
                         </div>
                     </form>
                 </div>

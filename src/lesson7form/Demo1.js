@@ -1,9 +1,20 @@
-import Reac from 'react';
+import Reac, { useState } from 'react';
 import useHandleInput from './useHandleInput';
 function Demo1(props) {
 
     const { val, handleInputChange } = useHandleInput({});
+    const { error, setErrot } = useState('');
     console.log(val);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!val.userName) {
+            setErrot("userName is required");
+        }
+       
+
+    }
+    console.log("asdas",error);
+
 
     return (
 
@@ -19,6 +30,8 @@ function Demo1(props) {
                             } type="text" className='form-control' name=""
                                 placeholder='nhap username' id="userName" />
 
+                                <small>{error}</small>
+
                             <input onInput={handleInputChange
 
                             } id="password" type="text" className='form-control' name=""
@@ -27,6 +40,9 @@ function Demo1(props) {
                             <input id="save" type="checkbox" onInput={handleInputChange} className='form-control'
                                 placeholder='nhap password' />
                             <small class form-text text-muted></small>
+                            <button onClick={
+                                handleSubmit
+                            } type="button" class="btn btn-primary">Log in</button>
 
                         </div>
                     </form>
